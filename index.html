@@ -3,215 +3,849 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ella Demo</title>
+  <title>ella — Hotel Acquisition Underwriting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --ink:      #3B473A;
+      --paper:    #FBFCF6;
+      --paper-alt:#F9FAF4;
+      --mist:     #D9DED7;
+      --muted:    #495D50;
+      --hairline: #DCE0D8;
+      --risk:     #C0392B;
+      --sans:     'Inter', -apple-system, sans-serif;
+      --mono:     'IBM Plex Mono', 'Courier New', monospace;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0f0f0f;
-      color: #f0f0f0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ── HEADER ─────────────────────────────── */
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
-      padding: 1.25rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(15, 15, 15, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #1e1e1e;
       z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--hairline);
+      height: 58px;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      color: var(--ink);
     }
+
+    .logo-word {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+    }
+
+    nav { display: flex; align-items: center; gap: 1.75rem; }
 
     nav a {
-      color: #aaa;
+      color: var(--muted);
       text-decoration: none;
-      margin-left: 2rem;
-      font-size: 0.9rem;
-      transition: color 0.2s;
+      font-size: 0.875rem;
+      font-weight: 400;
+      transition: color 0.15s;
     }
 
-    nav a:hover {
-      color: #fff;
+    nav a:hover { color: var(--ink); }
+
+    .nav-cta {
+      background: var(--ink) !important;
+      color: var(--paper) !important;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-weight: 500 !important;
     }
 
-    .hero {
-      text-align: center;
-      padding: 2rem;
-      max-width: 700px;
-    }
+    .nav-cta:hover { opacity: 0.85; }
 
-    .badge {
-      display: inline-block;
-      background: #1a1a2e;
-      border: 1px solid #3a3a6e;
-      color: #8888ff;
-      font-size: 0.75rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.5px;
-    }
+    /* ── SHARED ──────────────────────────────── */
+    section { padding: 6rem 2.5rem; }
 
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      margin-bottom: 1.25rem;
-    }
+    .container { max-width: 1040px; margin: 0 auto; }
 
-    h1 span {
-      background: linear-gradient(135deg, #7c7cff, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p.subtitle {
-      color: #888;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 2.5rem;
-    }
-
-    .cta-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 0.75rem 1.75rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
+    .section-label {
+      font-size: 0.7rem;
       font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
-      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 700;
+      letter-spacing: -0.7px;
+      line-height: 1.18;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #7c7cff, #c084fc);
-      color: #fff;
+      display: inline-block;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.65rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      transition: opacity 0.15s;
     }
 
-    .btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { opacity: 0.85; }
 
     .btn-secondary {
-      background: transparent;
-      color: #ccc;
-      border: 1px solid #333;
+      display: inline-block;
+      color: var(--muted);
+      padding: 0.65rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 400;
+      text-decoration: none;
+      border: 1px solid var(--hairline);
+      transition: border-color 0.15s, color 0.15s;
     }
 
-    .btn-secondary:hover {
-      border-color: #666;
-      color: #fff;
+    .btn-secondary:hover { border-color: var(--mist); color: var(--ink); }
+
+    /* ── HERO ────────────────────────────────── */
+    .hero {
+      padding: 7rem 2.5rem 6rem;
+      background: var(--paper);
     }
 
-    .features {
-      margin-top: 6rem;
+    .hero .container { max-width: 820px; }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.07;
+      letter-spacing: -1.8px;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.68;
+      max-width: 580px;
+      margin-bottom: 2.25rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .positioning-bar {
+      margin-top: 3.5rem;
+      padding: 1.1rem 1.5rem;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      background: var(--paper-alt);
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-style: italic;
+      max-width: 600px;
+      line-height: 1.55;
+    }
+
+    /* ── PROBLEM ─────────────────────────────── */
+    .problem {
+      background: var(--paper-alt);
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .problem h2 { margin-bottom: 1.5rem; max-width: 540px; }
+
+    .problem-body { max-width: 640px; }
+
+    .problem-body p {
+      font-size: 0.975rem;
+      color: var(--muted);
+      line-height: 1.72;
+      margin-bottom: 1.2rem;
+    }
+
+    .problem-body p strong { color: var(--ink); font-weight: 500; }
+
+    .blind-spot-list {
+      list-style: none;
+      margin: 1.5rem 0 1.75rem;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .blind-spot-list li {
+      padding: 0.8rem 1.2rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--hairline);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      line-height: 1.55;
+    }
+
+    .blind-spot-list li:last-child { border-bottom: none; }
+
+    .blind-spot-list li::before {
+      content: '—';
+      color: var(--mist);
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+
+    .problem-close {
+      font-size: 0.975rem;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.65;
+    }
+
+    .problem-close em { font-style: italic; color: var(--muted); }
+
+    /* ── SUPPLY SCAN ─────────────────────────── */
+    .supply-scan { background: var(--ink); }
+
+    .supply-scan .section-label { color: rgba(251,252,246,0.4); opacity: 1; }
+
+    .supply-scan h2 {
+      color: var(--paper);
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    .scan-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      width: 100%;
-      max-width: 700px;
-      padding: 0 1rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
     }
 
-    .feature-card {
-      background: #141414;
-      border: 1px solid #1e1e1e;
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: border-color 0.2s;
+    @media (max-width: 740px) {
+      .scan-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
 
-    .feature-card:hover {
-      border-color: #333;
+    .scan-text p {
+      font-size: 0.95rem;
+      color: rgba(251,252,246,0.6);
+      line-height: 1.72;
+      margin-bottom: 1.1rem;
     }
 
-    .feature-icon {
+    .scan-text p strong { color: var(--paper); font-weight: 500; }
+
+    /* Finding card */
+    .finding-card {
+      border: 1px solid rgba(251,252,246,0.12);
+      border-radius: 4px;
+      overflow: hidden;
+      background: rgba(251,252,246,0.03);
+    }
+
+    .finding-card-hd {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid rgba(251,252,246,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fc-type {
+      font-size: 0.67rem;
+      font-family: var(--mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(251,252,246,0.35);
+    }
+
+    .fc-sourced {
+      font-size: 0.67rem;
+      font-family: var(--mono);
+      color: rgba(251,252,246,0.3);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .finding-card-body { padding: 1.25rem 1rem 1.1rem; }
+
+    .fc-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--paper);
+      margin-bottom: 0.2rem;
+    }
+
+    .fc-loc {
+      font-size: 0.75rem;
+      font-family: var(--mono);
+      color: rgba(251,252,246,0.38);
+      margin-bottom: 1rem;
+    }
+
+    .fc-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .fc-stat-val {
       font-size: 1.5rem;
+      font-weight: 700;
+      font-family: var(--mono);
+      color: var(--paper);
+      letter-spacing: -0.5px;
+    }
+
+    .fc-stat-lbl {
+      font-size: 0.78rem;
+      color: rgba(251,252,246,0.45);
+      line-height: 1.4;
+    }
+
+    .fc-impact {
+      padding: 0.6rem 0.85rem;
+      background: rgba(251,252,246,0.05);
+      border: 1px solid rgba(251,252,246,0.08);
+      border-radius: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .fc-impact-lbl {
+      font-size: 0.65rem;
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: rgba(251,252,246,0.3);
+      margin-bottom: 0.2rem;
+    }
+
+    .fc-impact-val {
+      font-size: 0.85rem;
+      font-family: var(--mono);
+      color: rgba(251,252,246,0.7);
+    }
+
+    .fc-impact-val .risk-val { color: #e07070; }
+
+    .fc-source {
+      font-size: 0.7rem;
+      font-family: var(--mono);
+      color: rgba(251,252,246,0.25);
+      line-height: 1.55;
+    }
+
+    .fc-source a {
+      color: rgba(251,252,246,0.4);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── WORKFLOW ─────────────────────────────── */
+    .workflow { background: var(--paper); }
+
+    .workflow h2 { margin-bottom: 0.6rem; }
+
+    .workflow-intro {
+      font-size: 0.975rem;
+      color: var(--muted);
+      margin-bottom: 2.75rem;
+      max-width: 560px;
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--hairline);
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .workflow-grid { grid-template-columns: 1fr; }
+    }
+
+    .wf-step { padding: 1.75rem; background: var(--paper); }
+
+    .wf-num {
+      font-size: 0.7rem;
+      font-family: var(--mono);
+      color: var(--mist);
+      margin-bottom: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .wf-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .wf-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    /* ── RECONCILIATION ──────────────────────── */
+    .reconciliation {
+      background: var(--paper-alt);
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .reconciliation h2 { max-width: 560px; margin-bottom: 0.75rem; }
+
+    .rec-intro {
+      font-size: 0.975rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.25rem;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      overflow: hidden;
+      font-size: 0.85rem;
+    }
+
+    .comp-table th {
+      padding: 0.7rem 1.25rem;
+      text-align: left;
+      background: var(--mist);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .comp-table th:not(:first-child) { text-align: right; }
+
+    .comp-table td {
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--hairline);
+      font-family: var(--mono);
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .comp-table td:first-child {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--ink);
+    }
+
+    .comp-table td:not(:first-child) { text-align: right; }
+
+    .comp-table tr:last-child td { border-bottom: none; }
+
+    .comp-table tr:hover td { background: rgba(217,222,215,0.2); }
+
+    .ella-val { color: var(--ink); font-weight: 500; }
+
+    .risk-val  { color: var(--risk); font-weight: 500; }
+
+    .rec-close {
+      margin-top: 1.25rem;
+      font-size: 0.855rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── WHO IT'S FOR ────────────────────────── */
+    .who { background: var(--paper); }
+
+    .who h2 { max-width: 520px; margin-bottom: 0.75rem; }
+
+    .who-intro {
+      font-size: 0.975rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--hairline);
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 720px) {
+      .who-grid { grid-template-columns: 1fr; }
+    }
+
+    .who-card { padding: 1.75rem; background: var(--paper); }
+
+    .who-role {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--ink);
       margin-bottom: 0.75rem;
     }
 
-    .feature-card h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
+    .who-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.62;
     }
 
-    .feature-card p {
-      font-size: 0.82rem;
-      color: #666;
-      line-height: 1.5;
+    /* ── CLOSE / CTA ─────────────────────────── */
+    .close-cta {
+      background: var(--ink);
+      text-align: center;
     }
+
+    .close-cta .positioning {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.18;
+      color: var(--paper);
+      margin-bottom: 2rem;
+    }
+
+    .close-cta .positioning em {
+      font-style: normal;
+      color: rgba(251,252,246,0.4);
+    }
+
+    .close-cta .btn-primary {
+      background: var(--paper);
+      color: var(--ink);
+      border-color: var(--paper);
+    }
+
+    .close-cta .btn-primary:hover { opacity: 0.9; }
+
+    .close-cta .btn-secondary {
+      border-color: rgba(251,252,246,0.2);
+      color: rgba(251,252,246,0.55);
+    }
+
+    .close-cta .btn-secondary:hover {
+      border-color: rgba(251,252,246,0.45);
+      color: var(--paper);
+    }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(251,252,246,0.08);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: rgba(251,252,246,0.4);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(251,252,246,0.25);
+    }
+
+    .footer-nav a {
+      color: rgba(251,252,246,0.35);
+      text-decoration: none;
+      font-size: 0.78rem;
+      margin-left: 1.5rem;
+      transition: color 0.15s;
+    }
+
+    .footer-nav a:hover { color: rgba(251,252,246,0.65); }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">ella</div>
-    <nav>
-      <a href="#">Product</a>
-      <a href="#">Pricing</a>
-      <a href="#">Docs</a>
-      <a href="#">Log in</a>
-    </nav>
-  </header>
 
-  <main>
-    <div class="hero">
-      <div class="badge">Now in beta</div>
-      <h1>Meet <span>Ella</span>,<br>your AI assistant</h1>
-      <p class="subtitle">Ella helps you move faster, think clearer, and get more done — without the noise.</p>
-      <div class="cta-group">
-        <a href="#" class="btn btn-primary">Get started free</a>
-        <a href="#" class="btn btn-secondary">See how it works</a>
+<!-- ── HEADER ─────────────────────────── -->
+<header>
+  <a href="#" class="logo">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="9" y1="1" x2="9" y2="2.5" stroke="#3B473A" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M9 2.5C5.134 2.5 2 5.634 2 9.5h14c0-3.866-3.134-7-7-7z" stroke="#3B473A" stroke-width="1.15" fill="none" stroke-linejoin="round"/>
+      <path d="M9 9.5v5a1.75 1.75 0 003.5 0" stroke="#3B473A" stroke-width="1.15" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span class="logo-word">ella</span>
+  </a>
+  <nav>
+    <a href="#">Product</a>
+    <a href="#">Pricing</a>
+    <a href="#">Docs</a>
+    <a href="#" class="nav-cta">Request a demo</a>
+  </nav>
+</header>
+
+<!-- ── HERO ───────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="section-label">Hotel acquisition underwriting</div>
+    <h1>STR shows you today's market.<br>ella underwrites tomorrow's.</h1>
+    <p class="hero-sub">An AI underwriting platform for hotel acquisitions — from deal screen to stress-tested pro forma, with the forward-looking supply intelligence STR can't give you.</p>
+    <div class="cta-row">
+      <a href="#" class="btn-primary">Request a demo</a>
+      <a href="#" class="btn-secondary">Run a sample deal</a>
+    </div>
+    <div class="positioning-bar">
+      "STR prices the market you can see. ella prices the one you're about to compete in."
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEM ────────────────────────── -->
+<section class="problem">
+  <div class="container">
+    <div class="section-label">The problem</div>
+    <h2>Hotel underwriting has a structural blind spot.</h2>
+    <div class="problem-body">
+      <p>When an investor underwrites a hotel acquisition, the industry-standard input is STR benchmarking data — RevPAR, ADR, and occupancy for the existing competitive set. It tells you how the market is performing <em>today</em>.</p>
+      <p>STR has one structural limitation it cannot overcome: <strong>it only reflects supply that already exists and is already operating.</strong> It cannot show you:</p>
+      <ul class="blind-spot-list">
+        <li>A 72-key hotel approved next door that won't open for two years</li>
+        <li>Budget motels converting to housing, quietly tightening supply</li>
+        <li>A national luxury operator entering the submarket through a quiet acquisition</li>
+        <li>Regulatory shifts reshaping the competitive map — coastal-resilience scrutiny, motel-to-housing pressure</li>
+      </ul>
+      <p>By the time a buyer closes and ramps to stabilization — typically years 2 to 3 — the market they actually compete in looks nothing like the STR snapshot they underwrote against. New supply lands right as they're trying to push ADR and occupancy, capping the upside the model assumed.</p>
+      <p class="problem-close">The result: deals get priced against the market as it <em>is</em>, not the market as it <em>will be</em>. The single biggest swing factor in hotel returns — future supply — is the one thing the standard toolkit can't surface.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUPPLY SCAN ─────────────────────── -->
+<section class="supply-scan">
+  <div class="container">
+    <div class="section-label">The differentiator</div>
+    <h2>The supply you won't see for two years —<br>surfaced today.</h2>
+    <div class="scan-grid">
+      <div class="scan-text">
+        <p>ella scans the submarket from public records — planning commission filings, permitting databases, local press — and surfaces what's coming: <strong>new supply in the pipeline, supply coming offline, ownership and operator moves, and the regulatory climate.</strong></p>
+        <p>Every finding is cited and links directly to its source. This is the thing STR structurally cannot do, surfaced today instead of in two years when you're already trying to push ADR and the keys land next door.</p>
+        <p>The scan is deal-aware. Ask about the revenue ramp and ella flags the new supply entering in Year 2 that could cap your ADR growth — before you close.</p>
+      </div>
+      <div class="finding-card">
+        <div class="finding-card-hd">
+          <span class="fc-type">Supply finding · New construction</span>
+          <span class="fc-sourced">Sourced</span>
+        </div>
+        <div class="finding-card-body">
+          <div class="fc-title">Wychmere Beach Hotel — Expansion</div>
+          <div class="fc-loc">Harwich Port, MA &nbsp;·&nbsp; Submarket: Cape Cod</div>
+          <div class="fc-stat">
+            <span class="fc-stat-val">+40</span>
+            <span class="fc-stat-lbl">keys entering supply<br>Projected opening Q3 2026</span>
+          </div>
+          <div class="fc-impact">
+            <div class="fc-impact-lbl">Projected impact on comp set</div>
+            <div class="fc-impact-val">Occupancy ceiling: <span class="risk-val">−4.2 pp</span> at stabilization</div>
+          </div>
+          <div class="fc-source">
+            Source: Barnstable County Planning Commission filing, Mar 2025<br>
+            <a href="#">View filing →</a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="features">
-      <div class="feature-card">
-        <div class="feature-icon">&#9889;</div>
-        <h3>Lightning fast</h3>
-        <p>Responses in milliseconds so you never lose your flow.</p>
+<!-- ── WORKFLOW ────────────────────────── -->
+<section class="workflow">
+  <div class="container">
+    <div class="section-label">From deal screen to pro forma</div>
+    <h2>Every step of the underwrite, in one platform.</h2>
+    <p class="workflow-intro">ella walks an analyst from initial screen to finished, stress-tested pro forma — driver by driver, with a sourced default and rationale at each step.</p>
+    <div class="workflow-grid">
+      <div class="wf-step">
+        <div class="wf-num">01</div>
+        <div class="wf-title">Guided underwrite with sourced defaults</div>
+        <div class="wf-desc">Driver by driver — revenue, expenses, PIP/capital, financing, exit — each with a defensible default and a one-line rationale. Editable and fast. Reads like a model an analyst trusts, not a form to fill out.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128274;</div>
-        <h3>Private by default</h3>
-        <p>Your data stays yours. No training on your conversations.</p>
+      <div class="wf-step">
+        <div class="wf-num">02</div>
+        <div class="wf-title">A thought partner, not a black box</div>
+        <div class="wf-desc">On the judgment calls usually made in isolation — occupancy disruption during renovation, the ramp to stabilization — ella reasons through it with you, with full awareness of the deal and the submarket it's in.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#127757;</div>
-        <h3>Works anywhere</h3>
-        <p>Integrates with the tools you already use every day.</p>
+      <div class="wf-step">
+        <div class="wf-num">03</div>
+        <div class="wf-title">Forward-looking supply scan</div>
+        <div class="wf-desc">Planning commission filings, permitting databases, local press — ella surfaces new supply in the pipeline, supply coming offline, operator moves, and the regulatory climate. Every finding cited, every source linked.</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">04</div>
+        <div class="wf-title">STR reconciliation</div>
+        <div class="wf-desc">Side-by-side: the STR comp set as it looks today, next to ella's forward view that already prices in the supply entering in ~2 years. The gap between those two columns is the risk most underwrites miss entirely.</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">05</div>
+        <div class="wf-title">PIP scope-to-cost estimator</div>
+        <div class="wf-desc">Describe the renovation in plain language and ella decomposes it into a costed, scheduled bill of work — goods, freight, and labor, with quantities, unit costs, and lead times anchored to real permitted renovations nearby.</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">06</div>
+        <div class="wf-title">Pro forma + Monte Carlo export</div>
+        <div class="wf-desc">A 5-year USALI-style model with full debt block — LTV, DSCR, all-in rate, equity required. IRR percentiles (P10/P50/P90), DSCR-breach risk, tornado chart. Export to Excel.</div>
       </div>
     </div>
-  </main>
+  </div>
+</section>
+
+<!-- ── RECONCILIATION ─────────────────── -->
+<section class="reconciliation">
+  <div class="container">
+    <div class="section-label">The gap that matters</div>
+    <h2>The difference between the market you see<br>and the one you're about to compete in.</h2>
+    <p class="rec-intro">The STR comp set reflects the market today. ella's forward view prices in what's entering in ~2 years — when you're pushing for stabilization.</p>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>STR View — Today</th>
+          <th>ella Forward View</th>
+          <th>Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Competitive supply (keys)</td>
+          <td>847</td>
+          <td class="ella-val">1,109</td>
+          <td class="risk-val">+31%</td>
+        </tr>
+        <tr>
+          <td>Projected ADR at stabilization</td>
+          <td>$289</td>
+          <td class="ella-val">$241</td>
+          <td class="risk-val">−17%</td>
+        </tr>
+        <tr>
+          <td>Occupancy ceiling</td>
+          <td>84%</td>
+          <td class="ella-val">71%</td>
+          <td class="risk-val">−13 pp</td>
+        </tr>
+        <tr>
+          <td>Year 3 RevPAR</td>
+          <td>$243</td>
+          <td class="ella-val">$171</td>
+          <td class="risk-val">−30%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="rec-close">This gap is the risk most hotel underwrites miss entirely — priced against the market as it is, not the market as it will be.</p>
+  </div>
+</section>
+
+<!-- ── WHO IT'S FOR ───────────────────── -->
+<section class="who">
+  <div class="container">
+    <div class="section-label">Who it's for</div>
+    <h2>Institutional-grade diligence,<br>without an institutional research team.</h2>
+    <p class="who-intro">Built for the buyers who need to move fast and move right — owner-operators, small investment groups, and independent analysts underwriting boutique and independent hotel acquisitions.</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-role">Owner-operators</div>
+        <div class="who-desc">Running acquisitions alongside operations, with no dedicated research staff. ella compresses weeks of market diligence into the underwriting session itself.</div>
+      </div>
+      <div class="who-card">
+        <div class="who-role">Small investment groups</div>
+        <div class="who-desc">Boutique and independent hotel-focused funds that need institutional-quality supply analysis — without paying for an institutional data subscription to get it.</div>
+      </div>
+      <div class="who-card">
+        <div class="who-role">Independent analysts</div>
+        <div class="who-desc">Analysts building models without a research bench behind them. ella is the thought partner and the data layer — so judgment calls are anchored, not guessed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLOSE / CTA ────────────────────── -->
+<section class="close-cta">
+  <div class="container">
+    <p class="positioning">
+      <em>STR prices the market you can see.</em><br>
+      ella prices the one you're about to compete in.
+    </p>
+    <div class="cta-row" style="justify-content: center;">
+      <a href="#" class="btn-primary">Request a demo</a>
+      <a href="#" class="btn-secondary">Run a sample deal</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────── -->
+<footer>
+  <a href="#" class="footer-logo">
+    <svg width="15" height="15" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="9" y1="1" x2="9" y2="2.5" stroke="rgba(251,252,246,0.4)" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M9 2.5C5.134 2.5 2 5.634 2 9.5h14c0-3.866-3.134-7-7-7z" stroke="rgba(251,252,246,0.4)" stroke-width="1.15" fill="none" stroke-linejoin="round"/>
+      <path d="M9 9.5v5a1.75 1.75 0 003.5 0" stroke="rgba(251,252,246,0.4)" stroke-width="1.15" stroke-linecap="round" fill="none"/>
+    </svg>
+    ella
+  </a>
+  <span class="footer-copy">© 2025 ella</span>
+  <nav class="footer-nav">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </nav>
+</footer>
+
 </body>
 </html>
