@@ -97,10 +97,12 @@
     .container { max-width: 1100px; margin: 0 auto; }
 
     .section-num {
-      font-size: 0.68rem;
+      font-size: 0.93rem;
       font-family: var(--mono);
-      color: var(--mist);
-      letter-spacing: 0.04em;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
       margin-bottom: 1rem;
     }
 
@@ -760,28 +762,597 @@
     }
 
     .footer-nav a:hover { color: rgba(251,252,246,0.55); }
+
+    /* ── HERO LEAD ───────────────────────────── */
+    .hero-lead {
+      font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+      max-width: 600px;
+      margin: 0 auto 1rem;
+    }
+
+    /* ── GAPS — visual square grid ───────────── */
+    .gaps-grid {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--hairline);
+      border: 1px solid var(--hairline);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .gaps-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .gaps-grid { grid-template-columns: 1fr; }
+    }
+
+    .gap-card {
+      background: var(--paper);
+      padding: 1.6rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      min-height: 215px;
+    }
+
+    .gap-icon {
+      width: 30px;
+      height: 30px;
+      color: var(--ink);
+    }
+
+    .gap-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .gap-num {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--risk);
+      letter-spacing: 0.04em;
+    }
+
+    .gap-text {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-top: auto;
+    }
+
+    /* ── SUPPLY TIMELINE ─────────────────────── */
+    .supply-timeline {
+      margin-top: 1.25rem;
+      border: 1px solid rgba(251,252,246,0.1);
+      border-radius: 4px;
+      background: rgba(251,252,246,0.03);
+      padding: 1.25rem 1rem 1rem;
+    }
+
+    .stl-cap {
+      font-size: 0.62rem;
+      font-family: var(--mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(251,252,246,0.3);
+      margin-bottom: 1.1rem;
+    }
+
+    .stl-bars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      align-items: end;
+      height: 130px;
+    }
+
+    .stl-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.45rem;
+      height: 100%;
+      position: relative;
+    }
+
+    .stl-keys {
+      font-size: 0.66rem;
+      font-family: var(--mono);
+      color: rgba(251,252,246,0.55);
+    }
+
+    .stl-bar {
+      width: 100%;
+      background: rgba(251,252,246,0.15);
+      border-radius: 2px 2px 0 0;
+    }
+
+    .stl-col.flagged .stl-bar { background: #e07070; }
+    .stl-col.flagged .stl-keys { color: #e07070; font-weight: 500; }
+
+    .stl-flag {
+      position: absolute;
+      top: -6px;
+      font-size: 0.58rem;
+      font-family: var(--mono);
+      color: #e07070;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stl-axis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid rgba(251,252,246,0.08);
+    }
+
+    .stl-year {
+      text-align: center;
+      font-size: 0.66rem;
+      font-family: var(--mono);
+      color: rgba(251,252,246,0.4);
+    }
+
+    /* ── WORKFLOW CARDS (redesign) ───────────── */
+    .wf-cards {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .wf-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .wf-cards { grid-template-columns: 1fr; }
+    }
+
+    .wf-card {
+      position: relative;
+      padding: 1.6rem 1.4rem;
+      background: var(--paper-alt);
+      border: 1px solid var(--hairline);
+      border-radius: 6px;
+    }
+
+    .wf-card .wf-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--risk);
+      margin-bottom: 0.85rem;
+    }
+
+    .wf-card .wf-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .wf-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .wf-card::after {
+      content: '→';
+      position: absolute;
+      top: 50%;
+      right: -0.9rem;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: var(--mist);
+      z-index: 2;
+    }
+
+    .wf-card:last-child::after { display: none; }
+
+    @media (max-width: 900px) {
+      .wf-card::after { display: none; }
+    }
+
+    /* ── CAPABILITY CAROUSEL ─────────────────── */
+    .cap-carousel { margin-top: 3rem; }
+
+    .carousel {
+      position: relative;
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    .carousel:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .carousel-viewport { overflow: hidden; }
+
+    .carousel-track {
+      display: flex;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 246px 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 2.75rem 2.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .slide { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
+    }
+
+    .slide-num {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }
+
+    .slide-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      margin-bottom: 0.7rem;
+      line-height: 1.12;
+    }
+
+    .slide-problem {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .slide-viz { width: 100%; min-width: 0; }
+    .slide-viz svg { display: block; width: 100%; height: auto; }
+
+    /* viz: source chip */
+    .viz-chip {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      background: var(--mist);
+      border-radius: 11px;
+      padding: 0.22rem 0.7rem;
+    }
+
+    /* viz: excel-like table (PIP) */
+    .pip-stack { display: flex; flex-direction: column; gap: 0.85rem; }
+
+    .pip-input {
+      font-size: 0.78rem;
+      color: var(--ink);
+      background: var(--paper-alt);
+      border: 1px solid var(--hairline);
+      border-radius: 6px;
+      padding: 0.55rem 0.8rem;
+      line-height: 1.45;
+    }
+    .pip-input span { color: var(--muted); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+
+    .pip-arrow { text-align: center; color: var(--mist); font-size: 1rem; line-height: 1; }
+
+    .viz-table { width: 100%; border-collapse: collapse; font-size: 0.68rem; border: 1px solid var(--hairline); }
+    .viz-table th, .viz-table td { padding: 0.3rem 0.5rem; border: 1px solid var(--hairline); white-space: nowrap; }
+    .viz-table th {
+      background: var(--mist);
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.56rem;
+      text-align: right;
+    }
+    .viz-table th:first-child { text-align: left; }
+    .viz-table td { font-family: var(--mono); color: var(--muted); text-align: right; }
+    .viz-table td:first-child { font-family: var(--sans); color: var(--ink); text-align: left; white-space: normal; }
+    .viz-table tfoot td, .viz-table tfoot td { font-weight: 600; color: var(--ink); background: var(--paper-alt); }
+
+    .pip-rollup {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--paper-alt);
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      padding: 0.6rem 0.85rem;
+    }
+    .pip-rollup b { color: var(--ink); font-family: var(--mono); }
+
+    /* viz: driver rows (guided underwrite) */
+    .drv-stack { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .drv-badge {
+      align-self: flex-start;
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.04em;
+      color: var(--paper);
+      background: var(--ink);
+      border-radius: 5px;
+      padding: 0.3rem 0.7rem;
+    }
+
+    .drv-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.6rem 0.85rem;
+      border: 1px solid var(--hairline);
+      border-radius: 6px;
+      background: var(--paper);
+    }
+
+    .drv-label { font-size: 0.82rem; color: var(--ink); font-weight: 500; }
+    .drv-val { font-family: var(--mono); font-size: 0.82rem; color: var(--ink); text-align: right; }
+    .drv-chip { font-size: 0.6rem; color: var(--muted); background: var(--mist); border-radius: 4px; padding: 0.18rem 0.5rem; white-space: nowrap; }
+    .drv-toggle { display: inline-flex; gap: 0.25rem; }
+    .drv-toggle span { font-size: 0.6rem; font-family: var(--mono); padding: 0.18rem 0.45rem; border-radius: 4px; border: 1px solid var(--hairline); color: var(--muted); }
+    .drv-toggle span.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    @media (max-width: 540px) {
+      .drv-row { grid-template-columns: 1fr auto auto; }
+      .drv-chip { display: none; }
+    }
+
+    /* ── CAROUSEL CONTROLS ───────────────────── */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 1.25rem;
+      border-top: 1px solid var(--hairline);
+      background: var(--paper-alt);
+    }
+
+    .car-indicators { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+
+    .car-dot {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--mist);
+      background: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 0.28rem 0.55rem;
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+    }
+    .car-dot:hover { color: var(--muted); }
+    .car-dot[aria-current="true"] { color: var(--paper); background: var(--ink); }
+    .car-dot:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .car-arrows { display: flex; gap: 0.4rem; }
+
+    .car-arrow {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .car-arrow:hover { border-color: var(--mist); background: var(--mist); }
+    .car-arrow:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ── CAROUSEL BUILD ANIMATIONS ───────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .carousel-track { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+      .viz-rise {
+        transform: scaleY(0);
+        transform-box: fill-box;
+        transform-origin: bottom;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: var(--d, 0s);
+      }
+      .slide.active .viz-rise { transform: scaleY(1); }
+
+      .viz-pop {
+        opacity: 0;
+        transform: scale(0.4);
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: opacity 0.45s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: var(--d, 0s);
+      }
+      .slide.active .viz-pop { opacity: 1; transform: scale(1); }
+
+      .viz-fade {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        transition-delay: var(--d, 0s);
+      }
+      .slide.active .viz-fade { opacity: 1; }
+
+      .viz-step {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: var(--d, 0s);
+      }
+      .slide.active .viz-step { opacity: 1; transform: none; }
+
+      .viz-row {
+        opacity: 0;
+        transform: translateX(10px);
+        transition: opacity 0.45s ease, transform 0.45s ease;
+        transition-delay: var(--d, 0s);
+      }
+      .slide.active .viz-row { opacity: 1; transform: none; }
+    }
+
+    /* ── SUPPLY MAP TOOL ─────────────────────── */
+    .em-wrap { font-family: var(--sans); background: #EEF0E9; border-radius: 12px; padding: 14px; color: #3B473A; margin-top: 3rem; }
+    .em-app { background: #FBFCF6; border: 1px solid #DCE0D8; border-radius: 10px; overflow: hidden; }
+    .em-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 11px 14px; border-bottom: 1px solid #DCE0D8; flex-wrap: wrap; }
+    .em-body { display: flex; min-height: 430px; }
+    .em-side { width: 212px; border-right: 1px solid #DCE0D8; padding: 12px; box-sizing: border-box; flex-shrink: 0; }
+    .em-main { flex: 1; position: relative; min-width: 0; }
+    .em-map { position: absolute; inset: 0; overflow: hidden; }
+    .em-mapsvg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .em-ring { position: absolute; width: 230px; height: 230px; border: 1.5px dashed #9AA28F; border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+
+    .mk { position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1.5px solid #3B473A; background: #CBD3C5; color: #3B473A; padding: 0; transition: opacity .35s, transform .35s; }
+    .mk svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .mk:focus-visible { outline: 2px solid #3B473A; outline-offset: 2px; }
+    .mk-subj { width: 40px; height: 40px; background: #3B473A; border: 3px solid #FBFCF6; color: #FBFCF6; box-shadow: 0 0 0 1px #3B473A; }
+    .mk-subj svg { width: 19px; height: 19px; }
+    /* pipeline: dashed-white when planned (known now), solid yellow once launched */
+    .mk-pipe { background: #E3B53A; border-color: #B8902A; color: #3B473A; }
+    .mk-pipe.future { background: #FBFCF6; border: 2px dashed #E3B53A; color: #B8902A; }
+    /* leaving supply: shown as dotted blue (no longer a lasting part of supply) */
+    .mk-off { background: #FBFCF6; border: 2px dashed #3F72A8; color: #2E5680; }
+    .mk-zoned { background: #FBFCF6; border: 2px dashed #6E776A; color: #6E776A; }
+    .mk.hidden { opacity: 0; transform: translate(-50%, -50%) scale(.4); pointer-events: none; }
+    .mk.sel { box-shadow: 0 0 0 4px rgba(59,71,58,.22); }
+    .mk-pipe.sel { box-shadow: 0 0 0 4px rgba(227,181,58,.35); }
+    .mk-off.sel { box-shadow: 0 0 0 4px rgba(63,114,168,.30); }
+    .no-anim .mk { transition: none; }
+
+    .em-search { position: relative; }
+    .em-search svg { position: absolute; left: 8px; top: 8px; width: 15px; height: 15px; stroke: #9AA28F; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .em-search input { width: 100%; height: 32px; padding-left: 28px; font-size: 12.5px; box-sizing: border-box; border: 1px solid #DCE0D8; border-radius: 7px; background: #FBFCF6; font-family: inherit; color: #3B473A; }
+
+    .em-li { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; text-align: left; background: none; border: none; border-radius: 6px; padding: 7px 8px; cursor: pointer; color: #3B473A; font-size: 13px; font-family: inherit; }
+    .em-li:hover { background: #F2F4ED; }
+    .em-li.sel { background: #E7EBE2; }
+    .em-li:focus-visible { outline: 2px solid #3B473A; outline-offset: 1px; }
+    .em-li-meta { display: flex; gap: 6px; align-items: center; color: #6E776A; font-size: 11px; }
+    .em-grp { font-size: 11px; letter-spacing: 1px; color: #6E776A; margin: 12px 4px 4px; }
+    .em-yb { font-size: 10px; color: #C0392B; border: 1px solid #E3B3AD; border-radius: 10px; padding: 1px 6px; white-space: nowrap; }
+
+    .em-card { position: absolute; top: 12px; right: 12px; width: 236px; max-width: calc(100% - 24px); background: #FBFCF6; border: 1px solid #DCE0D8; border-radius: 10px; padding: 13px; font-size: 12.5px; line-height: 1.5; }
+    .em-chip { display: inline-block; background: #D9DED7; color: #3B473A; font-size: 10px; letter-spacing: .5px; padding: 2px 7px; border-radius: 10px; }
+    .em-cite { display: flex; align-items: center; gap: 5px; color: #3B473A; text-decoration: none; font-size: 11.5px; margin-top: 5px; }
+    .em-cite svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.7; flex-shrink: 0; }
+    .em-cite:hover { text-decoration: underline; }
+    .em-x { background: none; border: none; cursor: pointer; color: #9AA28F; padding: 0; display: inline-flex; }
+    .em-x svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+    .em-x:focus-visible { outline: 2px solid #3B473A; outline-offset: 2px; }
+
+    .em-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: #6E776A; padding: 10px 16px 2px; }
+    .em-sw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; vertical-align: -1px; margin-right: 4px; }
+
+    .em-slider { padding: 12px 16px 14px; border-top: 1px solid #DCE0D8; }
+    .em-slider input[type=range] { width: 100%; accent-color: #3B473A; }
+    .em-ticks { display: flex; justify-content: space-between; margin-top: 4px; }
+    .em-tick { cursor: pointer; background: none; border: none; font-family: inherit; font-size: 11px; color: #6E776A; padding: 2px 4px; }
+    .em-tick.on { color: #3B473A; font-weight: 500; }
+    .em-tick:focus-visible { outline: 2px solid #3B473A; outline-offset: 2px; }
+    .em-zone { transition: opacity .3s; }
+
+    @media (prefers-reduced-motion: reduce) { .mk { transition: none; } .em-zone { transition: none; } }
+    @media (max-width: 680px) {
+      .em-body { flex-direction: column; }
+      .em-side { width: auto; border-right: none; border-bottom: 1px solid #DCE0D8; }
+      .em-main { min-height: 360px; }
+      .em-card { width: 200px; }
+    }
+
+    /* ── DIFFERENTIATOR TWO-COLUMN ───────────── */
+    .diff-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .diff-top { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .diff-text .scan-bullets { margin-top: 1.75rem; }
+
+    /* ── NET SUPPLY WATERFALL ─────────────────── */
+    .net-waterfall { margin-top: 0; }
+    .net-waterfall svg { display: block; width: 100%; height: auto; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .net-waterfall .nw-bar {
+        transform: scaleY(0);
+        transform-box: fill-box;
+        transform-origin: bottom;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: var(--d, 0s);
+      }
+      .net-waterfall.visible .nw-bar { transform: scaleY(1); }
+
+      .net-waterfall .nw-fade {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        transition-delay: var(--d, 0s);
+      }
+      .net-waterfall.visible .nw-fade { opacity: 1; }
+    }
   </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-  <a href="#" class="logo"><img src="ella-logo.png" alt="ella" height="24"></a>
+  <a href="#" class="logo"><img src="ella-logo-v6.png" alt="ella" height="24"></a>
   <nav>
     <a href="#platform">Platform</a>
     <a href="#how">How it works</a>
-    <a href="#" class="nav-cta">Request a demo</a>
+    <a href="https://calendly.com/andrew_gorovoy-mde/hospitality_research?month=2026-06" target="_blank" rel="noopener" class="nav-cta">Request a demo</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <h1 class="reveal">Underwrite a hotel in<br><em>minutes</em>, not weeks.</h1>
-    <p class="hero-sub reveal reveal-delay-1">From T-12 to stress-tested pro forma — with the forward-looking supply intelligence your comp set can't give you.</p>
-    <div class="cta-row reveal reveal-delay-2">
-      <a href="#" class="btn-primary">Request a demo</a>
-      <a href="#" class="btn-ghost">Run a sample deal</a>
+    <h1 class="reveal">Meet <em>ella</em> — your AI<br>underwriting associate.</h1>
+    <p class="hero-lead reveal reveal-delay-1">Every angle of the deal, in a fraction of the time.</p>
+    <p class="hero-sub reveal reveal-delay-2">From T-12 to stress-tested pro forma — with the forward-looking supply intelligence your comp set can't give you.</p>
+    <div class="cta-row reveal reveal-delay-3">
+      <a href="https://calendly.com/andrew_gorovoy-mde/hospitality_research?month=2026-06" target="_blank" rel="noopener" class="btn-primary">Request a demo</a>
     </div>
   </div>
 </section>
@@ -790,101 +1361,167 @@
 <section class="problem">
   <div class="container">
     <div class="section-num reveal">five gaps</div>
-    <h2 class="section-head reveal">Hotel underwriting hasn't changed<br>in decades.</h2>
-    <ul class="problem-list">
-      <li class="reveal">
-        <span class="pl-num">01</span>
-        <span class="pl-text">You're blind to the supply that hasn't opened yet.</span>
-      </li>
-      <li class="reveal reveal-delay-1">
-        <span class="pl-num">02</span>
-        <span class="pl-text">The renovation budget is a guess.</span>
-      </li>
-      <li class="reveal reveal-delay-2">
-        <span class="pl-num">03</span>
-        <span class="pl-text">One number stands in for the whole range of outcomes.</span>
-      </li>
-      <li class="reveal reveal-delay-3">
-        <span class="pl-num">04</span>
-        <span class="pl-text">Your best analysts spend their hours typing, not thinking.</span>
-      </li>
-      <li class="reveal reveal-delay-4">
-        <span class="pl-num">05</span>
-        <span class="pl-text">The operational upside is a black box until after you close.</span>
-      </li>
-    </ul>
+    <h2 class="section-head reveal">Where hotel underwriting<br>still falls short.</h2>
+    <div class="gaps-grid">
+      <div class="gap-card reveal">
+        <span class="gap-icon"><svg viewBox="0 0 24 24"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg></span>
+        <span class="gap-num">01</span>
+        <span class="gap-text">You're blind to the supply that hasn't opened yet.</span>
+      </div>
+      <div class="gap-card reveal reveal-delay-1">
+        <span class="gap-icon"><svg viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="8" cy="8" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="16" cy="16" r="1"/></svg></span>
+        <span class="gap-num">02</span>
+        <span class="gap-text">Estimating the PIP is a toss in the air.</span>
+      </div>
+      <div class="gap-card reveal reveal-delay-2">
+        <span class="gap-icon"><svg viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16c1.5 0 2-6 4-6s2.5 6 4 6 2-9 4-9"/></svg></span>
+        <span class="gap-num">03</span>
+        <span class="gap-text">A single Excel output cannot simulate a true range of possibilities.</span>
+      </div>
+      <div class="gap-card reveal reveal-delay-3">
+        <span class="gap-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></span>
+        <span class="gap-num">04</span>
+        <span class="gap-text">Your best analysts spend their hours building models, not thinking.</span>
+      </div>
+      <div class="gap-card reveal reveal-delay-4">
+        <span class="gap-icon"><svg viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+        <span class="gap-num">05</span>
+        <span class="gap-text">The operational upside is a black box until after you close.</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CAPABILITIES — numbered visual grid -->
 <section class="capabilities" id="platform">
   <div class="container">
-    <div class="section-num reveal">01/07 — 05/07</div>
-    <h2 class="section-head reveal">ella closes all five.</h2>
+    <div class="section-num reveal">the platform</div>
+    <h2 class="section-head reveal">How ella closes each gap.</h2>
     <div class="section-sub reveal">One platform. Five fixes. Every step sourced and auditable.</div>
-    <div class="cap-grid" style="margin-top: 3rem;">
-      <div class="cap-card reveal">
-        <div class="cap-num">01</div>
-        <div class="cap-title">Supply scan</div>
-        <div class="cap-desc">Surfaces new supply, conversions, operator moves, and regulatory shifts from public records — cited and linked.</div>
-      </div>
-      <div class="cap-card reveal reveal-delay-1">
-        <div class="cap-num">02</div>
-        <div class="cap-title">PIP scope-to-cost</div>
-        <div class="cap-desc">Plain-language renovation scope decomposed into a costed bill of work — anchored to real permitted projects nearby.</div>
-      </div>
-      <div class="cap-card reveal reveal-delay-2">
-        <div class="cap-num">03</div>
-        <div class="cap-title">Monte Carlo stress test</div>
-        <div class="cap-desc">P10/P50/P90 IRR, DSCR-breach probability, tornado chart. Price the whole range, not one number.</div>
-      </div>
-    </div>
-    <div class="cap-bottom-row">
-      <div class="cap-card reveal reveal-delay-3">
-        <div class="cap-num">04</div>
-        <div class="cap-title">Guided underwrite</div>
-        <div class="cap-desc">Every driver with a sourced default and rationale. Accept, adjust, or override — no manual entry.</div>
-      </div>
-      <div class="cap-card reveal reveal-delay-4">
-        <div class="cap-num">05</div>
-        <div class="cap-title">Operational read</div>
-        <div class="cap-desc">Normalized expenses, rate penetration, departmental margin — the as-is to stabilized gap, made legible.</div>
-      </div>
-    </div>
+    <div class="cap-carousel reveal" id="capCarousel"></div>
   </div>
 </section>
 
 <!-- SUPPLY SCAN — hero feature -->
 <section class="supply-scan">
   <div class="container">
-    <div class="section-num reveal">01/07 · the differentiator</div>
-    <h2 class="section-head reveal">The supply your comp set won't<br>show for two years.</h2>
-    <div class="scan-cols">
-      <ul class="scan-bullets reveal">
-        <li><strong>New construction</strong> in the pipeline from planning filings</li>
-        <li><strong>Supply coming offline</strong> — motel-to-housing conversions, closures</li>
-        <li><strong>Operator moves</strong> — acquisitions, flag changes, brand entries</li>
-        <li><strong>Regulatory climate</strong> — coastal scrutiny, zoning shifts</li>
-        <li>Every finding <strong>cited and linked</strong> to its public-record source</li>
-        <li><strong>Deal-aware</strong> — flags supply that impacts your specific ramp</li>
-      </ul>
-      <div class="fc reveal reveal-delay-1">
-        <div class="fc-hd">
-          <span class="fc-type">Supply finding · New construction</span>
-          <span class="fc-sourced">Sourced</span>
+    <div class="diff-top">
+      <div class="diff-text">
+        <div class="section-num reveal">01/07 · the differentiator</div>
+        <h2 class="section-head reveal">The supply your comp set won't<br>show for two years.</h2>
+        <ul class="scan-bullets reveal">
+          <li><strong>New construction</strong> in the pipeline from planning filings</li>
+          <li><strong>Supply coming offline</strong> — motel-to-housing conversions, closures</li>
+          <li><strong>Operator moves</strong> — acquisitions, flag changes, brand entries</li>
+          <li><strong>Regulatory climate</strong> — coastal scrutiny, zoning shifts</li>
+          <li>Every finding <strong>cited and linked</strong> to its public-record source</li>
+          <li><strong>Deal-aware</strong> — flags supply that impacts your specific ramp</li>
+        </ul>
+      </div>
+
+      <!-- NET SUBMARKET SUPPLY WATERFALL -->
+      <div class="net-waterfall reveal">
+      <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" width="100%" role="img" aria-labelledby="ws-t ws-d" font-family="Inter, system-ui, sans-serif">
+        <title id="ws-t">Net submarket supply, forward view</title>
+        <desc id="ws-d">Existing comp-set keys of 540, plus 64 new construction keys entering, minus 52 budget keys going offline, nets to 552 forward keys. The 64 new keys land in the boutique segment while the offline supply is budget and does not offset.</desc>
+        <rect x="6" y="6" width="748" height="348" rx="10" fill="#3E473B" stroke="#5A6353" stroke-width="1"/>
+        <text x="28" y="36" fill="#9AA28F" font-size="12" letter-spacing="1.5">NET SUBMARKET SUPPLY · FORWARD VIEW</text>
+
+        <line x1="92" y1="300" x2="712" y2="300" stroke="#5A6353" stroke-width="1"/>
+
+        <rect class="nw-bar" style="--d:0s" x="120" y="114.4" width="92" height="185.6" fill="#5E6A52"/>
+        <text class="nw-fade" style="--d:.2s" x="166" y="106" fill="#F4F5EF" font-size="13" text-anchor="middle" font-weight="500">540</text>
+
+        <line class="nw-fade" style="--d:.35s" x1="212" y1="114.4" x2="258" y2="114.4" stroke="#9AA28F" stroke-width="1" stroke-dasharray="3 3"/>
+        <rect class="nw-bar" style="--d:.4s" x="258" y="92.4" width="92" height="22" fill="#B26C67"/>
+        <text class="nw-fade" style="--d:.55s" x="304" y="84" fill="#CF7E74" font-size="13" text-anchor="middle" font-weight="500">+64</text>
+
+        <line class="nw-fade" style="--d:.6s" x1="350" y1="92.4" x2="396" y2="92.4" stroke="#9AA28F" stroke-width="1" stroke-dasharray="3 3"/>
+        <rect class="nw-bar" style="--d:.6s" x="396" y="92.4" width="92" height="17.9" fill="#4F5A45" stroke="#6E7A63" stroke-width="1"/>
+        <text class="nw-fade" style="--d:.75s" x="442" y="84" fill="#9AA28F" font-size="13" text-anchor="middle">−52</text>
+
+        <line class="nw-fade" style="--d:.85s" x1="488" y1="110.3" x2="534" y2="110.3" stroke="#9AA28F" stroke-width="1" stroke-dasharray="3 3"/>
+        <rect class="nw-bar" style="--d:.9s" x="534" y="110.25" width="92" height="189.75" fill="none" stroke="#F4F5EF" stroke-width="1.5"/>
+        <text class="nw-fade" style="--d:1.05s" x="580" y="102" fill="#F4F5EF" font-size="13" text-anchor="middle" font-weight="500">552</text>
+
+        <text x="166" y="320" fill="#9AA28F" font-size="11" text-anchor="middle">existing comp keys</text>
+        <text x="304" y="320" fill="#9AA28F" font-size="11" text-anchor="middle">new construction</text>
+        <text x="442" y="320" fill="#9AA28F" font-size="11" text-anchor="middle">going offline</text>
+        <text x="580" y="320" fill="#9AA28F" font-size="11" text-anchor="middle">net forward</text>
+
+        <text x="28" y="344" fill="#CF7E74" font-size="11">The +40 land in your boutique segment; the offline keys are budget motels — no real offset.</text>
+      </svg>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE SUPPLY MAP TOOL -->
+    <div class="em-wrap reveal">
+      <h2 class="sr-only">Interactive ella supply map of Harwich Port showing operating hotels, pipeline supply entering over 1, 3, 5 and 10 year horizons, a zoning overlay for where lodging is permitted, and clickable properties with sourced ownership and development history.</h2>
+      <div class="em-app" id="emApp">
+        <div class="em-head">
+          <div style="display:flex;align-items:center;gap:9px">
+            <span style="font-size:15px;font-weight:500">ella</span>
+            <span style="color:#9AA28F">·</span>
+            <span style="font-size:13px;color:#6E776A">submarket supply — Harwich Port, MA</span>
+          </div>
+          <label style="font-size:12px;color:#6E776A;display:flex;align-items:center;gap:6px;cursor:pointer">
+            <input type="checkbox" id="zoneTog" checked style="accent-color:#3B473A"> zoning overlay
+          </label>
         </div>
-        <div class="fc-body">
-          <div class="fc-title">Wychmere Beach Hotel — Expansion</div>
-          <div class="fc-loc">Harwich Port, MA &middot; Cape Cod</div>
-          <div class="fc-metric">
-            <span class="fc-val">+40</span>
-            <span class="fc-lbl">keys entering supply<br>Opening Q3 2026</span>
+        <div class="em-body">
+          <div class="em-side">
+            <div class="em-search">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" placeholder="Search properties" aria-label="Search properties">
+            </div>
+            <div class="em-grp">OPERATING · TODAY (4)</div>
+            <div id="grpOp"></div>
+            <div class="em-grp">PIPELINE &amp; ZONING (3)</div>
+            <div id="grpPipe"></div>
           </div>
-          <div class="fc-impact">
-            <span class="fc-impact-lbl">Comp set impact</span>
-            <span class="fc-impact-val">−4.2 pp occ.</span>
+          <div class="em-main">
+            <div class="em-map">
+              <svg class="em-mapsvg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <rect x="0" y="0" width="100" height="100" fill="#FBFCF6"/>
+                <path d="M100,30 C82,40 78,52 70,60 C60,70 52,82 50,100 L100,100 Z" fill="#DCE6E5"/>
+                <g id="zoneG" class="em-zone">
+                  <rect x="44" y="28" width="26" height="22" fill="#E4EBDD" stroke="#BFD0B4" stroke-dasharray="1.5 1.5" stroke-width="0.4"/>
+                  <rect x="60" y="50" width="17" height="17" fill="#E4EBDD" stroke="#BFD0B4" stroke-dasharray="1.5 1.5" stroke-width="0.4"/>
+                  <rect x="16" y="50" width="19" height="16" fill="#EDE7DA" stroke="#D6CBB4" stroke-dasharray="1.5 1.5" stroke-width="0.4"/>
+                </g>
+                <g stroke="#E3E6DD" stroke-width="0.6">
+                  <line x1="0" y1="36" x2="68" y2="40"/><line x1="0" y1="64" x2="52" y2="66"/>
+                  <line x1="30" y1="0" x2="34" y2="86"/><line x1="58" y1="0" x2="50" y2="62"/>
+                </g>
+              </svg>
+              <div class="em-ring" style="left:47%;top:56%"></div>
+              <div id="markers"></div>
+              <div class="em-card" id="card" hidden></div>
+            </div>
           </div>
-          <div class="fc-source">Barnstable County Planning Commission, Mar 2025 &middot; <a href="#">View filing</a></div>
+        </div>
+        <div class="em-legend">
+          <span><span class="em-sw" style="background:#E4EBDD;border:1px solid #BFD0B4"></span>lodging permitted</span>
+          <span><span class="em-sw" style="background:#EDE7DA;border:1px solid #D6CBB4"></span>commercial</span>
+          <span><span class="em-sw" style="background:#CBD3C5;border:1px solid #3B473A"></span>operating</span>
+          <span><span class="em-sw" style="background:#E3B53A"></span>new supply</span>
+          <span><span class="em-sw" style="background:#FBFCF6;border:1.5px dashed #E3B53A"></span>upcoming new supply</span>
+          <span><span class="em-sw" style="background:#FBFCF6;border:1.5px dashed #3F72A8"></span>leaving supply</span>
+          <span><span class="em-sw" style="border:1.5px dashed #6E776A"></span>zoned, no project</span>
+        </div>
+        <div class="em-slider">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;gap:1rem;flex-wrap:wrap">
+            <span style="font-size:12px;color:#6E776A">supply horizon</span>
+            <span id="readout" style="font-size:12.5px;color:#3B473A">540 operating keys · today</span>
+          </div>
+          <input type="range" id="time" min="0" max="4" step="1" value="0" aria-label="Supply horizon in years">
+          <div class="em-ticks" id="ticks">
+            <button class="em-tick on" type="button" data-v="0">now</button>
+            <button class="em-tick" type="button" data-v="1">+1 yr</button>
+            <button class="em-tick" type="button" data-v="2">+3 yr</button>
+            <button class="em-tick" type="button" data-v="3">+5 yr</button>
+            <button class="em-tick" type="button" data-v="4">+10 yr</button>
+          </div>
         </div>
       </div>
     </div>
@@ -932,27 +1569,27 @@
 <section class="workflow" id="how">
   <div class="container">
     <div class="section-num reveal">from listing to decision</div>
-    <h2 class="section-head reveal">Three minutes to understand.<br>Three clicks to model.</h2>
-    <div class="wf-strip reveal">
-      <div class="wf-step">
+    <h2 class="section-head reveal">Four moves from raw inputs<br>to a defensible decision.</h2>
+    <div class="wf-cards">
+      <div class="wf-card reveal">
         <div class="wf-num">01</div>
         <div class="wf-title">Ingest</div>
+        <div class="wf-desc">Point ella at a deal. It pulls the OM, T-12, STR, comps, and forward supply into one structured model.</div>
       </div>
-      <div class="wf-step">
+      <div class="wf-card reveal reveal-delay-1">
         <div class="wf-num">02</div>
-        <div class="wf-title">Scan supply</div>
+        <div class="wf-title">Collaborate</div>
+        <div class="wf-desc">Work alongside ella as a thought partner — every driver sourced, every assumption challenged in plain language.</div>
       </div>
-      <div class="wf-step">
+      <div class="wf-card reveal reveal-delay-2">
         <div class="wf-num">03</div>
-        <div class="wf-title">Underwrite</div>
+        <div class="wf-title">Simulate</div>
+        <div class="wf-desc">Run the full range of outcomes in parallel, not one number. The strongest paths and their fault lines surface automatically.</div>
       </div>
-      <div class="wf-step">
+      <div class="wf-card reveal reveal-delay-3">
         <div class="wf-num">04</div>
-        <div class="wf-title">Stress test</div>
-      </div>
-      <div class="wf-step">
-        <div class="wf-num">05</div>
         <div class="wf-title">Export</div>
+        <div class="wf-desc">Walk away with a sourced, auditable underwrite you can put in front of an IC and stand behind.</div>
       </div>
     </div>
   </div>
@@ -1007,7 +1644,7 @@
 <!-- WHO -->
 <section class="who">
   <div class="container">
-    <div class="section-num reveal">built for</div>
+    <div class="section-num reveal">who we are building for</div>
     <h2 class="section-head reveal">Institutional diligence,<br>without the institution.</h2>
     <div class="who-row">
       <div class="who-card reveal">
@@ -1030,17 +1667,15 @@
 <section class="close-cta">
   <div class="container">
     <h2 class="close-headline reveal">Underwriting, reimagined.</h2>
-    <p class="close-sub reveal reveal-delay-1">Stop pricing one number. Price the whole range.</p>
-    <div class="cta-row reveal reveal-delay-2">
-      <a href="#" class="btn-primary">Request a demo</a>
-      <a href="#" class="btn-ghost">Run a sample deal</a>
+    <div class="cta-row reveal reveal-delay-1">
+      <a href="https://calendly.com/andrew_gorovoy-mde/hospitality_research?month=2026-06" target="_blank" rel="noopener" class="btn-primary">Request a demo</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <a href="#" class="footer-logo"><img src="ella-logo.png" alt="ella"></a>
+  <a href="#" class="footer-logo"><img src="ella-logo-v6.png" alt="ella"></a>
   <span class="footer-copy">&copy; 2025 ella</span>
   <nav class="footer-nav">
     <a href="#">Privacy</a>
@@ -1048,6 +1683,538 @@
     <a href="#">Contact</a>
   </nav>
 </footer>
+
+<!-- CAPABILITY CAROUSEL -->
+<script>
+(function () {
+  // ── Single editable config: all demo-baked figures live here ──────────────
+  const CONFIG = {
+    autoplayMs: 6500,
+    slides: [
+      {
+        num: '01',
+        title: 'Supply scan',
+        problem: 'Your comp set only counts hotels already open.',
+        viz: 'map',
+        sourceChip: 'Cape Cod Commission · cited',
+        map: {
+          subject: { x: 300, y: 205, label: 'The Harborview' },
+          ring: { cx: 300, cy: 205, r: 150, label: 'what STR sees' },
+          comps: [
+            { x: 205, y: 150 }, { x: 370, y: 140 },
+            { x: 245, y: 270 }, { x: 372, y: 258 }
+          ],
+          conversion: { x: 172, y: 232, label: 'motel → housing (− supply)' },
+          operator: { x: 600, y: 300, label: 'Chatham Inn · ~6 mi' },
+          accent: {
+            x: 458, y: 150,
+            line1: 'Wychmere · +40 keys',
+            line2: 'approved 2/5/26 · <1 mi'
+          }
+        }
+      },
+      {
+        num: '02',
+        title: 'PIP scope-to-cost',
+        problem: 'PIP usually lands as one guessed per-key number.',
+        viz: 'pip',
+        sourceChip: 'anchored to 3 permitted projects nearby (Shovels)',
+        pip: {
+          input: 'Redo the lobby, soft-refresh 50 guestrooms, replace rooftop HVAC.',
+          cols: ['Component', 'Goods', 'Freight', 'Fuel', 'Labor', 'Subtotal', 'Lead'],
+          rows: [
+            ['Lobby seating + lounge', '$48,000', '$3,800', '$640', '$2,500', '$54,940', '10–12 wk'],
+            ['Reception desk (millwork)', '$22,000', '$1,500', '$260', '$6,000', '$29,760', '8 wk'],
+            ['Flooring (LVT + tile), 1,800 sf', '$27,000', '$1,900', '$320', '$14,400', '$43,620', '4–6 wk'],
+            ['Lighting + electrical', '$12,500', '$900', '$150', '$9,500', '$23,050', '6 wk'],
+            ['Paint + wall finishes', '$4,200', '$200', '$80', '$11,000', '$15,480', '2 wk'],
+            ['Demolition + disposal', '—', '—', '—', '$10,220', '$10,220', '1 wk'],
+            ['Permits + inspections', '—', '—', '—', '$3,500', '$3,500', 'varies']
+          ],
+          foot: { label: 'Lobby subtotal', subtotal: '$180,570', lead: '12–14 wk' },
+          rollup: '50 keys → <b>$4.25M PIP</b> ($85k/key) · 9-mo phased.'
+        }
+      },
+      {
+        num: '03',
+        title: 'Monte Carlo stress test',
+        problem: 'One IRR number hides the odds.',
+        viz: 'montecarlo',
+        sourceChip: '10,000 trials · cited',
+        mc: {
+          p10: '7%', p50: '15.5%', p90: '24%',
+          point: '15.5%', hurdle: '14% hurdle', clear: '58%',
+          below: [12.5, 25, 47, 78, 112, 140],
+          above: [156, 144, 115, 81, 50, 28, 14],
+          x0: 316, step: 30, barW: 24, baseline: 300, hurdleX: 493
+        }
+      },
+      {
+        num: '04',
+        title: 'Guided underwrite',
+        problem: 'Every driver, keyed in by hand, cell by cell.',
+        viz: 'drivers',
+        sourceChip: 'T-12 extracted ✓',
+        drivers: [
+          { label: 'Stabilized occupancy', val: '64%', chip: 'comp-set penetration' },
+          { label: 'ADR', val: '$375, +3%/yr', chip: 'STR + comp set' },
+          { label: 'Exit cap', val: '7.5%', chip: 'recent trades' },
+          { label: 'Debt', val: '60% LTV @ ~7.0%', chip: 'UST5 + 300 bps' },
+          { label: 'Min DSCR', val: '1.45×', chip: 'sized' }
+        ]
+      },
+      {
+        num: '05',
+        title: 'Operational read',
+        problem: 'The as-is → stabilized upside, usually sized by gut.',
+        viz: 'bridge',
+        sourceChip: 'USALI-normalized',
+        bridge: {
+          valueMax: 1.7, baseline: 300, top: 80,
+          steps: [
+            { label: 'As-is NOI', sub: '', value: 0.70, from: 0, to: 0.70, kind: 'anchor', amt: '$0.70M' },
+            { label: '+ Occupancy ramp', sub: '52% → 64%', value: 0.45, from: 0.70, to: 1.15, kind: 'accent', amt: '+$0.45M' },
+            { label: '+ ADR growth', sub: '', value: 0.20, from: 1.15, to: 1.35, kind: 'lever', amt: '+$0.20M' },
+            { label: '+ Expense norm.', sub: '', value: 0.18, from: 1.35, to: 1.53, kind: 'lever', amt: '+$0.18M' },
+            { label: '+ Dept. margin', sub: '', value: 0.07, from: 1.53, to: 1.60, kind: 'lever', amt: '+$0.07M' },
+            { label: 'Stabilized NOI', sub: '', value: 1.60, from: 0, to: 1.60, kind: 'anchor', amt: '$1.60M' }
+          ]
+        }
+      }
+    ]
+  };
+
+  // ── Brand tokens (mirror CSS vars; used inside generated SVG) ─────────────
+  const C = {
+    ink: '#3B473A', paper: '#FBFCF6', paperAlt: '#F9FAF4', mist: '#D9DED7',
+    bar: '#AEBDAB', muted: '#495D50', hairline: '#DCE0D8', risk: '#C0392B'
+  };
+
+  const FONT = 'Inter, system-ui, sans-serif';
+  const MONO = 'ui-monospace, "IBM Plex Mono", Menlo, monospace';
+
+  // ── Visualization renderers (return HTML/SVG strings) ─────────────────────
+  function renderMap(s) {
+    const m = s.map, comps = m.comps.map(c =>
+      `<circle cx="${c.x}" cy="${c.y}" r="5.5" fill="${C.bar}" class="viz-pop" style="--d:.15s"/>`
+    ).join('');
+    return `
+<svg viewBox="0 0 760 372" role="img" font-family="${FONT}"
+     aria-label="Schematic submarket map: subject hotel The Harborview at center, existing comps as sage dots inside the ring of supply STR sees, and a newly-approved Wychmere property of 40 keys lit just outside the ring.">
+  <rect x="6" y="6" width="748" height="360" rx="10" fill="${C.paper}" stroke="${C.hairline}"/>
+  <text x="26" y="36" fill="${C.muted}" font-size="12" letter-spacing="1.5">01 · SUPPLY SCAN</text>
+
+  <circle cx="${m.ring.cx}" cy="${m.ring.cy}" r="${m.ring.r}" fill="none" stroke="${C.mist}" stroke-width="1.5" stroke-dasharray="4 5"/>
+  <text x="${m.ring.cx}" y="${m.ring.cy - m.ring.r - 10}" fill="${C.muted}" font-size="11" text-anchor="middle">${m.ring.label}</text>
+
+  ${comps}
+  <circle cx="${m.conversion.x}" cy="${m.conversion.y}" r="6" fill="none" stroke="${C.muted}" stroke-width="1.4" stroke-dasharray="2 3" class="viz-pop" style="--d:.3s"/>
+  <text x="${m.conversion.x - 12}" y="${m.conversion.y + 4}" fill="${C.muted}" font-size="10" text-anchor="end">${m.conversion.label}</text>
+
+  <circle cx="${m.operator.x}" cy="${m.operator.y}" r="5.5" fill="${C.bar}" class="viz-pop" style="--d:.4s"/>
+  <text x="${m.operator.x + 12}" y="${m.operator.y + 4}" fill="${C.muted}" font-size="10">${m.operator.label}</text>
+
+  <!-- subject anchor pin -->
+  <path d="M${m.subject.x} ${m.subject.y - 24} c-9 0 -16 7 -16 16 c0 11 16 26 16 26 c0 0 16 -15 16 -26 c0 -9 -7 -16 -16 -16 z" fill="${C.ink}"/>
+  <circle cx="${m.subject.x}" cy="${m.subject.y - 8}" r="5" fill="${C.paper}"/>
+  <text x="${m.subject.x}" y="${m.subject.y + 30}" fill="${C.ink}" font-size="11.5" font-weight="600" text-anchor="middle">${m.subject.label}</text>
+
+  <!-- the one accent: newly-approved supply, lights up last -->
+  <g class="viz-pop" style="--d:1s">
+    <circle cx="${m.accent.x}" cy="${m.accent.y}" r="15" fill="${C.ink}" fill-opacity="0.12"/>
+    <circle cx="${m.accent.x}" cy="${m.accent.y}" r="7" fill="${C.ink}"/>
+    <line x1="${m.accent.x + 9}" y1="${m.accent.y}" x2="${m.accent.x + 30}" y2="${m.accent.y}" stroke="${C.ink}" stroke-width="1"/>
+    <text x="${m.accent.x + 36}" y="${m.accent.y - 2}" fill="${C.ink}" font-size="12" font-weight="600">${m.accent.line1}</text>
+    <text x="${m.accent.x + 36}" y="${m.accent.y + 14}" fill="${C.muted}" font-size="10.5">${m.accent.line2}</text>
+  </g>
+
+  <rect x="22" y="334" width="220" height="20" rx="10" fill="${C.mist}"/>
+  <text x="132" y="348" fill="${C.muted}" font-size="11" text-anchor="middle" font-family="${MONO}">${s.sourceChip}</text>
+</svg>`;
+  }
+
+  function renderPIP(s) {
+    const p = s.pip;
+    const head = p.cols.map(c => `<th>${c}</th>`).join('');
+    const body = p.rows.map((r, i) =>
+      `<tr class="viz-row" style="--d:${(0.15 + i * 0.09).toFixed(2)}s">` +
+      r.map((cell, j) => `<td>${cell}</td>`).join('') + '</tr>'
+    ).join('');
+    return `
+<div class="pip-stack">
+  <div class="pip-input viz-fade" style="--d:.05s"><span>plain-language scope</span>${p.input}</div>
+  <div class="pip-arrow viz-fade" style="--d:.15s">↓</div>
+  <table class="viz-table">
+    <thead><tr>${head}</tr></thead>
+    <tbody>${body}</tbody>
+    <tfoot>
+      <tr class="viz-row" style="--d:.8s">
+        <td colspan="5">${p.foot.label}</td>
+        <td>${p.foot.subtotal}</td>
+        <td>${p.foot.lead}</td>
+      </tr>
+    </tfoot>
+  </table>
+  <div class="pip-rollup viz-fade" style="--d:.95s">${p.rollup}</div>
+  <span class="viz-chip viz-fade" style="--d:1.05s">${s.sourceChip}</span>
+</div>`;
+  }
+
+  function renderMonteCarlo(s) {
+    const mc = s.mc, base = mc.baseline;
+    let bars = '';
+    let i = 0;
+    mc.below.forEach((h, k) => {
+      const x = mc.x0 + i * mc.step;
+      bars += `<rect class="viz-rise" style="--d:${(0.05 + i * 0.045).toFixed(2)}s" x="${x}" y="${base - h}" width="${mc.barW}" height="${h}" fill="${C.risk}" fill-opacity="0.8"/>`;
+      i++;
+    });
+    mc.above.forEach((h) => {
+      const x = mc.x0 + i * mc.step;
+      bars += `<rect class="viz-rise" style="--d:${(0.05 + i * 0.045).toFixed(2)}s" x="${x}" y="${base - h}" width="${mc.barW}" height="${h}" fill="${C.bar}"/>`;
+      i++;
+    });
+    return `
+<svg viewBox="0 0 760 372" role="img" font-family="${FONT}"
+     aria-label="One IRR point estimate of ${mc.point} versus a full Monte Carlo distribution: P10 ${mc.p10}, P50 ${mc.p50}, P90 ${mc.p90}, a ${mc.hurdle} line, the below-hurdle region in red, and ${mc.clear} of outcomes clearing the hurdle.">
+  <rect x="6" y="6" width="748" height="360" rx="10" fill="${C.paper}" stroke="${C.hairline}"/>
+  <text x="26" y="36" fill="${C.muted}" font-size="12" letter-spacing="1.5">03 · MONTE CARLO STRESS TEST</text>
+  <rect x="612" y="22" width="124" height="22" rx="11" fill="${C.mist}"/>
+  <text x="674" y="37" fill="${C.ink}" font-size="11" text-anchor="middle" font-family="${MONO}">${s.sourceChip}</text>
+
+  <text x="150" y="92" fill="${C.muted}" font-size="12" text-anchor="middle">the standard model</text>
+  <circle class="viz-pop" style="--d:.1s" cx="150" cy="178" r="8" fill="${C.ink}"/>
+  <text x="150" y="214" fill="${C.ink}" font-size="22" text-anchor="middle" font-family="${MONO}">${mc.point}</text>
+  <text x="150" y="236" fill="${C.muted}" font-size="12" text-anchor="middle">one point estimate</text>
+
+  <line x1="252" y1="176" x2="296" y2="176" stroke="${C.ink}" stroke-width="1.5"/>
+  <path d="M296 176 l-9 -5 v10 z" fill="${C.ink}"/>
+
+  <line x1="304" y1="70" x2="304" y2="322" stroke="${C.hairline}"/>
+  <text x="320" y="92" fill="${C.ink}" font-size="14" font-weight="500">ella — the full range of outcomes</text>
+
+  ${bars}
+  <line x1="316" y1="${base}" x2="700" y2="${base}" stroke="${C.ink}"/>
+
+  <line x1="${mc.hurdleX}" y1="120" x2="${mc.hurdleX}" y2="${base}" stroke="${C.ink}" stroke-width="1.5"/>
+  <text x="${mc.hurdleX}" y="112" fill="${C.ink}" font-size="12" font-weight="500" text-anchor="middle">${mc.hurdle}</text>
+
+  <text x="358" y="320" fill="${C.muted}" font-size="11" text-anchor="middle">P10 · ${mc.p10}</text>
+  <text x="508" y="320" fill="${C.ink}" font-size="11" text-anchor="middle" font-weight="500">P50 · ${mc.p50}</text>
+  <text x="658" y="320" fill="${C.muted}" font-size="11" text-anchor="middle">P90 · ${mc.p90}</text>
+
+  <text x="606" y="116" fill="${C.ink}" font-size="20" text-anchor="middle" font-weight="500">${mc.clear}</text>
+  <text x="606" y="136" fill="${C.muted}" font-size="11" text-anchor="middle">clear the hurdle</text>
+  <text x="404" y="348" fill="${C.risk}" font-size="11" text-anchor="middle">below hurdle</text>
+</svg>`;
+  }
+
+  function renderDrivers(s) {
+    const rows = s.drivers.map((d, i) =>
+      `<div class="drv-row viz-row" style="--d:${(0.2 + i * 0.1).toFixed(2)}s">
+        <span class="drv-label">${d.label}</span>
+        <span class="drv-val">${d.val}</span>
+        <span class="drv-chip">${d.chip}</span>
+        <span class="drv-toggle"><span class="on">accept</span><span>adjust</span></span>
+      </div>`
+    ).join('');
+    return `
+<div class="drv-stack">
+  <span class="drv-badge viz-pop" style="--d:.05s">${s.sourceChip}</span>
+  ${rows}
+</div>`;
+  }
+
+  function renderBridge(s) {
+    const b = s.bridge;
+    const scale = (b.baseline - b.top) / b.valueMax;
+    const xs = [70, 180, 290, 400, 510, 620], w = 80;
+    let bars = '', conns = '', labels = '';
+    b.steps.forEach((st, i) => {
+      const x = xs[i];
+      const yTop = b.baseline - st.to * scale;
+      const yBot = b.baseline - st.from * scale;
+      const h = Math.max(yBot - yTop, 2);
+      const fill = st.kind === 'anchor' ? C.ink : (st.kind === 'accent' ? C.ink : C.bar);
+      bars += `<rect class="viz-step" style="--d:${(0.1 + i * 0.12).toFixed(2)}s" x="${x}" y="${yTop.toFixed(1)}" width="${w}" height="${h.toFixed(1)}" fill="${fill}" rx="1"/>`;
+      // value atop
+      labels += `<text class="viz-step" style="--d:${(0.1 + i * 0.12).toFixed(2)}s" x="${x + w / 2}" y="${(yTop - 8).toFixed(1)}" fill="${C.ink}" font-size="12" font-weight="600" text-anchor="middle" font-family="${MONO}">${st.amt}</text>`;
+      // bottom labels
+      labels += `<text x="${x + w / 2}" y="320" fill="${C.muted}" font-size="10.5" text-anchor="middle">${st.label}</text>`;
+      if (st.sub) labels += `<text x="${x + w / 2}" y="334" fill="${C.muted}" font-size="9.5" text-anchor="middle">${st.sub}</text>`;
+      // dashed connector at the running total carried into the next step
+      if (i < b.steps.length - 1) {
+        const yConn = b.baseline - st.to * scale;
+        conns += `<line x1="${x + w}" y1="${yConn.toFixed(1)}" x2="${xs[i + 1]}" y2="${yConn.toFixed(1)}" stroke="${C.muted}" stroke-width="1" stroke-dasharray="3 3"/>`;
+      }
+    });
+    return `
+<svg viewBox="0 0 760 372" role="img" font-family="${FONT}"
+     aria-label="NOI bridge: as-is NOI of 0.70 million dollars stepping up through occupancy ramp, ADR growth, expense normalization, and departmental margin to a stabilized NOI of 1.60 million dollars.">
+  <rect x="6" y="6" width="748" height="360" rx="10" fill="${C.paper}" stroke="${C.hairline}"/>
+  <text x="26" y="36" fill="${C.muted}" font-size="12" letter-spacing="1.5">05 · OPERATIONAL READ</text>
+  <rect x="600" y="22" width="136" height="22" rx="11" fill="${C.mist}"/>
+  <text x="668" y="37" fill="${C.ink}" font-size="11" text-anchor="middle" font-family="${MONO}">${s.sourceChip}</text>
+  ${conns}
+  ${bars}
+  <line x1="60" y1="${b.baseline}" x2="710" y2="${b.baseline}" stroke="${C.ink}"/>
+  ${labels}
+</svg>`;
+  }
+
+  const RENDERERS = {
+    map: renderMap, pip: renderPIP, montecarlo: renderMonteCarlo,
+    drivers: renderDrivers, bridge: renderBridge
+  };
+
+  // ── Build DOM ─────────────────────────────────────────────────────────────
+  const mount = document.getElementById('capCarousel');
+  if (!mount) return;
+  const n = CONFIG.slides.length;
+
+  const slidesHTML = CONFIG.slides.map((s, i) => `
+    <div class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${n}">
+      <div class="slide-info">
+        <div class="slide-num">${s.num}</div>
+        <h3 class="slide-title">${s.title}</h3>
+        <p class="slide-problem">${s.problem}</p>
+      </div>
+      <div class="slide-viz">${RENDERERS[s.viz](s)}</div>
+    </div>`).join('');
+
+  const dotsHTML = CONFIG.slides.map((s, i) =>
+    `<button class="car-dot" type="button" data-idx="${i}" aria-label="Go to slide ${i + 1}: ${s.title}">${s.num}</button>`
+  ).join('');
+
+  mount.innerHTML = `
+    <div class="carousel" role="group" aria-roledescription="carousel" aria-label="How ella closes each gap" tabindex="0">
+      <div class="carousel-viewport">
+        <div class="carousel-track">${slidesHTML}</div>
+      </div>
+      <div class="carousel-controls">
+        <div class="car-indicators">${dotsHTML}</div>
+        <div class="car-arrows">
+          <button class="car-arrow" type="button" data-dir="-1" aria-label="Previous capability">&#8592;</button>
+          <button class="car-arrow" type="button" data-dir="1" aria-label="Next capability">&#8594;</button>
+        </div>
+      </div>
+      <div class="sr-only" aria-live="polite"></div>
+    </div>`;
+
+  // ── Controller ────────────────────────────────────────────────────────────
+  const carousel = mount.querySelector('.carousel');
+  const track = mount.querySelector('.carousel-track');
+  const slides = Array.from(mount.querySelectorAll('.slide'));
+  const dots = Array.from(mount.querySelectorAll('.car-dot'));
+  const live = mount.querySelector('.sr-only');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  let index = 0;
+  let timer = null;
+  let paused = false;
+
+  function render() {
+    track.style.transform = `translateX(${-index * 100}%)`;
+    slides.forEach((sl, i) => sl.classList.toggle('active', i === index));
+    dots.forEach((d, i) => d.setAttribute('aria-current', i === index ? 'true' : 'false'));
+    live.textContent = `${CONFIG.slides[index].title} — ${index + 1} of ${n}`;
+  }
+
+  function goTo(i) { index = (i + n) % n; render(); }
+  function step(dir) { goTo(index + dir); }
+
+  function startAuto() {
+    if (reduceMotion.matches || paused || timer) return;
+    timer = setInterval(() => step(1), CONFIG.autoplayMs);
+  }
+  function stopAuto() { clearInterval(timer); timer = null; }
+  function resetAuto() { stopAuto(); startAuto(); }
+
+  function pause() { paused = true; stopAuto(); }
+  function resume() { paused = false; startAuto(); }
+
+  mount.querySelectorAll('.car-arrow').forEach(btn =>
+    btn.addEventListener('click', () => { step(parseInt(btn.dataset.dir, 10)); resetAuto(); })
+  );
+  dots.forEach(d =>
+    d.addEventListener('click', () => { goTo(parseInt(d.dataset.idx, 10)); resetAuto(); })
+  );
+
+  carousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { step(1); resetAuto(); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft') { step(-1); resetAuto(); e.preventDefault(); }
+  });
+
+  carousel.addEventListener('mouseenter', pause);
+  carousel.addEventListener('mouseleave', resume);
+  carousel.addEventListener('focusin', pause);
+  carousel.addEventListener('focusout', resume);
+  reduceMotion.addEventListener('change', () => { stopAuto(); startAuto(); });
+
+  render();
+  startAuto();
+})();
+</script>
+
+<!-- SUPPLY MAP TOOL -->
+<script>
+(function () {
+  const root = document.getElementById('emApp');
+  if (!root) return;
+
+  // ── Single editable config: all demo-baked figures live here ──────────────
+  const stepYears = [0, 1, 3, 5, 10];
+  const baselineKeys = 540;
+  const deltas = [
+    { from: 1, text: '+40 boutique (Wychmere)' },
+    { from: 2, text: '−30 budget offline' },
+    { from: 3, text: '+60 potential (zoned)' }
+  ];
+  const props = [
+    { id: 'harborview', name: 'The Harborview', grp: 'op', type: 'subj', x: 47, y: 56, appear: 0, meta: '50 keys · subject',
+      status: 'Subject · operating (ramping)',
+      facts: ['50 keys · boutique', 'Asking $14.5M ($290k/key)', 'Converted from prior property, 2024'],
+      history: [['2024', 'Acquired; conversion underway']],
+      cites: [['Deed transfer — Barnstable Registry', '#']] },
+    { id: 'seabreeze', name: 'Sea Breeze Inn', grp: 'op', type: 'op', x: 31, y: 41, appear: 0, meta: '38 keys',
+      status: 'Operating · comp set', facts: ['38 keys · select-service'],
+      history: [['2019', 'Last renovation']], cites: [['STR comp set', '#']] },
+    { id: 'harborhouse', name: 'Harbor House', grp: 'op', type: 'op', x: 62, y: 46, appear: 0, meta: '60 keys',
+      status: 'Operating · comp set', facts: ['60 keys · boutique'],
+      history: [['2021', 'Refinanced']], cites: [['STR comp set', '#']] },
+    { id: 'capelodge', name: 'Cape Lodge', grp: 'op', type: 'op', x: 40, y: 72, appear: 0, meta: '45 keys',
+      status: 'Operating · comp set', facts: ['45 keys · independent'],
+      history: [['2018', 'Family-owned since']], cites: [['STR comp set', '#']] },
+    { id: 'wychmere', name: 'Wychmere Beach Hotel — Expansion', grp: 'pipe', type: 'pipe', x: 55, y: 38, appear: 1, meta: '+40 keys', yb: '+1 yr',
+      status: 'Approved · opens ~2026',
+      facts: ['32 → 72 keys (+40)', 'Boutique · under 1 mi from subject', 'Lands in your segment'],
+      owner: 'Wychmere Harbor Real Estate LLC',
+      history: [['2025', 'First filing withdrawn — coastal resilience'], ['2026', 'Re-approved by Cape Cod Commission']],
+      cites: [['Cape Cod Commission DRI record', '#'], ['Town of Harwich building permit', '#']] },
+    { id: 'bayside', name: 'Bayside Motor Inn → housing', grp: 'pipe', type: 'off', x: 22, y: 65, appear: 2, meta: '−30 keys', yb: '+3 yr',
+      status: 'Converting · supply leaving',
+      facts: ['~30 budget keys removed', 'Different segment — no offset to you'],
+      history: [['2027', 'Rezoned to residential']], cites: [['Town zoning amendment', '#']] },
+    { id: 'vacant', name: 'Vacant parcel — lodging permitted', grp: 'pipe', type: 'zoned', x: 68, y: 60, appear: 3, meta: 'potential', yb: '+5 yr',
+      status: 'Zoned for lodging · no project yet',
+      facts: ['Parcel permits hotel use', 'Capacity for ~60 keys', 'Watch for filings'],
+      history: [['—', 'No filing on record']], cites: [['Future Land Use map — lodging district', '#']] }
+  ];
+
+  // ── Inline SVG icons (repo convention; no Tabler webfont) ─────────────────
+  const ICON = {
+    subj: '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/>',
+    op: '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/>',
+    pipe: '<path d="M5 12h14M12 5v14"/>',
+    off: '<path d="M12 5v14M19 12l-7 7-7-7"/>',
+    zoned: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>'
+  };
+  const mkIcon = (t) => '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICON[t] + '</svg>';
+  const XSVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+  const USERSVG = '<svg viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.7;flex-shrink:0"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+  const LINKSVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+
+  // ── DOM refs (scoped to component to avoid global id collisions) ──────────
+  const mWrap = root.querySelector('#markers');
+  const card = root.querySelector('#card');
+  const opG = root.querySelector('#grpOp');
+  const piG = root.querySelector('#grpPipe');
+  const timeEl = root.querySelector('#time');
+  const readout = root.querySelector('#readout');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('no-anim');
+
+  let cur = 0;
+
+  // ── Build markers + sidebar lists ─────────────────────────────────────────
+  props.forEach((p) => {
+    const b = document.createElement('button');
+    b.className = 'mk mk-' + p.type;
+    b.type = 'button';
+    b.style.left = p.x + '%';
+    b.style.top = p.y + '%';
+    b.dataset.id = p.id;
+    b.setAttribute('aria-label', p.name);
+    b.innerHTML = mkIcon(p.type);
+    b.addEventListener('click', () => select(p.id, true));
+    mWrap.appendChild(b);
+
+    const li = document.createElement('button');
+    li.className = 'em-li';
+    li.type = 'button';
+    li.dataset.id = p.id;
+    li.innerHTML = '<span>' + p.name + '</span><span class="em-li-meta">' +
+      (p.yb ? '<span class="em-yb">' + p.yb + '</span>' : '') + p.meta + '</span>';
+    li.addEventListener('click', () => select(p.id, true));
+    (p.grp === 'op' ? opG : piG).appendChild(li);
+  });
+
+  const markerEl = (id) => mWrap.querySelector('[data-id="' + id + '"]');
+
+  // ── Time horizon → reveal markers + update readout ────────────────────────
+  function refresh() {
+    props.forEach((p) => {
+      const el = markerEl(p.id);
+      if (p.type === 'pipe') {
+        // known in the present; planned (dashed-white) until its launch year, then solid yellow
+        el.classList.remove('hidden');
+        el.classList.toggle('future', cur < p.appear);
+      } else if (p.type === 'off') {
+        // leaving supply: shown in blue until its exit year, then gone from the map
+        el.classList.toggle('hidden', cur >= p.appear);
+      } else if (p.type === 'zoned') {
+        el.classList.toggle('hidden', !(p.appear <= cur));
+      } else {
+        el.classList.remove('hidden');
+      }
+    });
+    const yrs = stepYears[cur];
+    const active = deltas.filter((d) => cur >= d.from).map((d) => d.text);
+    readout.textContent = baselineKeys + ' operating keys' +
+      (yrs === 0 ? ' · today' : ' · within ' + yrs + ' yr' + (yrs > 1 ? 's' : '') +
+        (active.length ? ' → ' + active.join(' · ') : ''));
+    root.querySelectorAll('.em-tick').forEach((t) => t.classList.toggle('on', +t.dataset.v === cur));
+  }
+
+  // ── Selection + detail card ───────────────────────────────────────────────
+  function select(id, fromUser) {
+    const p = props.find((x) => x.id === id);
+    if (!p) return;
+    if (fromUser && p.appear > cur) { cur = p.appear; timeEl.value = cur; refresh(); }
+    root.querySelectorAll('.mk').forEach((m) => m.classList.toggle('sel', m.dataset.id === id));
+    root.querySelectorAll('.em-li').forEach((m) => m.classList.toggle('sel', m.dataset.id === id));
+
+    let h = '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">' +
+      '<span class="em-chip">' + p.status + '</span>' +
+      '<button class="em-x" type="button" aria-label="Close detail card">' + XSVG + '</button></div>';
+    h += '<div style="font-size:14px;font-weight:500;margin:8px 0 6px">' + p.name + '</div>';
+    h += p.facts.map((f) => '<div>' + f + '</div>').join('');
+    if (p.owner) h += '<div style="margin-top:6px;color:#6E776A;display:flex;align-items:center;gap:5px">' + USERSVG + '<span>' + p.owner + '</span></div>';
+    h += '<div style="border-top:1px solid #DCE0D8;margin:9px 0 7px"></div>' +
+      '<div style="font-size:10px;letter-spacing:.5px;color:#6E776A;margin-bottom:4px">HISTORY</div>';
+    h += p.history.map((r) => '<div style="display:flex;gap:8px;margin-bottom:3px"><span style="color:#9AA28F;min-width:34px">' + r[0] + '</span><span>' + r[1] + '</span></div>').join('');
+    h += '<div style="font-size:10px;letter-spacing:.5px;color:#6E776A;margin:8px 0 3px">SOURCED</div>';
+    h += p.cites.map((c) => '<a class="em-cite" href="' + c[1] + '">' + LINKSVG + '<span>' + c[0] + '</span></a>').join('');
+    card.innerHTML = h;
+    card.hidden = false;
+    card.querySelector('.em-x').addEventListener('click', () => {
+      card.hidden = true;
+      root.querySelectorAll('.sel').forEach((e) => e.classList.remove('sel'));
+    });
+  }
+
+  // ── Controls ──────────────────────────────────────────────────────────────
+  timeEl.addEventListener('input', (e) => { cur = +e.target.value; refresh(); });
+  root.querySelectorAll('.em-tick').forEach((t) =>
+    t.addEventListener('click', () => { cur = +t.dataset.v; timeEl.value = cur; refresh(); })
+  );
+  root.querySelector('#zoneTog').addEventListener('change', (e) => {
+    root.querySelector('#zoneG').style.opacity = e.target.checked ? '1' : '0';
+  });
+
+  refresh();
+  select('wychmere', false);
+})();
+</script>
 
 <!-- SCROLL REVEAL -->
 <script>
